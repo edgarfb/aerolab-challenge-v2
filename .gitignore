@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# coding challenge assets
+/coding-challenge
+
 # testing
 /coverage
 
