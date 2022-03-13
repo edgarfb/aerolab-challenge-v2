@@ -6,6 +6,15 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+  --white: #f9f9f9;
+  --gray: #6d6d6d;
+  --gray-light: #adadad;
+  --gray-very-light: #ededed;
+  --lightblue: #0ad4fa;
+  --orange: #ff7b00;
+}
+
 a {
   color: inherit;
   text-decoration: none;
