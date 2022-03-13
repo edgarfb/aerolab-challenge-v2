@@ -31,6 +31,7 @@ export default function Navbar({ user }) {
       <style jsx>{`
         nav {
           max-width: 1440px;
+          margin: auto;
           padding: 1rem 2rem;
           display: flex;
 
