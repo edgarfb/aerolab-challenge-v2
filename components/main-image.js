@@ -26,6 +26,13 @@ export default function MainImage() {
           width: 1176px;
           margin: 3rem auto;
         }
+        // I need to figure out how to make this work
+        // Retina display
+        // @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        //   .main-image {
+        //     background-image: url("/images/header-x2.png");
+        //   }
+        // }
       `}</style>
     </div>
   );
