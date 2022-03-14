@@ -16,6 +16,7 @@ export default function Navbar({ user }) {
         <div className="user-box-points">
           {user.points}
           <Image
+            className="top-4"
             src="/images/icons/coin.svg"
             alt=""
             width="20px"
@@ -23,11 +24,7 @@ export default function Navbar({ user }) {
           />
         </div>
       </div>
-      <style jsx global>{`
-        img {
-          top: 5 !important;
-        }
-      `}</style>
+
       <style jsx>{`
         nav {
           max-width: 1440px;
