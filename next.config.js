@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["https://coding-challenge-api.aerolab.co"],
+    domains: ["coding-challenge-api.aerolab.co"],
   },
 };
 

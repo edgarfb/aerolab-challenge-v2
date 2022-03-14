@@ -2,18 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import CardOverlay from "./card-overlay";
 
-const fakeData = {
-  _id: "5a033f0f364bf301523e9b93",
-  name: "iPhone 7 Case Sea-Blue",
-  cost: 200,
-  category: "Accesorios",
-  img: {
-    url: "https://coding-challenge-api.aerolab.co/images/SamsungTabS2-x1.png",
-    hdUrl: "https://coding-challenge-api.aerolab.co/images/SamsungTabS2-x1.png",
-  },
-};
-
-export default function Card({ product = fakeData }) {
+export default function Card({ product }) {
   const [isHover, setIsHover] = useState(false);
   return (
     <div
@@ -21,7 +10,7 @@ export default function Card({ product = fakeData }) {
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      {isHover && <CardOverlay product={fakeData} />}
+      {isHover && <CardOverlay product={product} />}
       <div className="buy-bag">
         <Image
           src="/images/icons/buy-blue.svg"
@@ -31,8 +20,13 @@ export default function Card({ product = fakeData }) {
         />
       </div>
       <div className="card-image">
-        {/* I need to figure out how to use Image/Next Component here */}
-        <img src={product.img.url} alt="" />
+        <Image
+          src={product.img.url}
+          alt=""
+          width="252px"
+          height="182px"
+          layout="responsive"
+        />
       </div>
       <div className="card-info">
         <span className="category">{product.category}</span>

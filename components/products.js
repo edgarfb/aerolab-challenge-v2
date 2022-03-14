@@ -1,12 +1,22 @@
 import Card from "./card";
+const fakeData = {
+  _id: "5a033f0f364bf301523e9b93",
+  name: "iPhone 7 Case Sea-Blue",
+  cost: 200,
+  category: "Accesorios",
+  img: {
+    url: "https://coding-challenge-api.aerolab.co/images/SamsungTabS2-x1.png",
+    hdUrl: "https://coding-challenge-api.aerolab.co/images/SamsungTabS2-x1.png",
+  },
+};
 
 export default function Products() {
   return (
     <section>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card product={fakeData} />
+      <Card product={fakeData} />
+      <Card product={fakeData} />
+      <Card product={fakeData} />
       <style jsx>{`
         section {
           display: flex;
