@@ -1,5 +1,10 @@
 import { useState } from "react";
-const btnLabels = ["Most recent", "Lower price", "Highest price"];
+import { useProductsDispatchContext } from "../context/ProductsContext";
+const btnLabels = [
+  { label: "Most recent", action: "MOST_RECENT" },
+  { label: "Lower price", action: "LOWER_PRICE" },
+  { label: "Highest price", action: "HIGHEST_PRICE" },
+];
 
 function BtnSortBy({ children, isActive, onClick }) {
   return (
@@ -22,19 +27,23 @@ function BtnSortBy({ children, isActive, onClick }) {
 }
 
 export default function ProductSorterBar() {
+  const dispatch = useProductsDispatchContext();
   const [actualIndex, setActualIndex] = useState(0);
   return (
     <div className="product-sorter-container">
       <div style={{ color: "var(--gray)" }}>16 of 32 products</div>
       <div className="sort-box">
         <div style={{ color: "var(--gray-light)" }}>sort by:</div>
-        {btnLabels.map((label, index) => (
+        {btnLabels.map((item, index) => (
           <BtnSortBy
-            key={index}
+            key={item.label}
             isActive={actualIndex === index}
-            onClick={() => setActualIndex(index)}
+            onClick={() => {
+              dispatch({ type: item.action });
+              setActualIndex(index);
+            }}
           >
-            {label}
+            {item.label}
           </BtnSortBy>
         ))}
       </div>
