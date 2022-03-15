@@ -19,12 +19,11 @@ export default function Home({ products }) {
 
 // for production build
 // export async function getStaticProps() {
-//   const res = await fetch("https://coding-challenge-api.aerolab.co/products", {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}products`, {
 //     headers: {
 //       "Content-Type": "application/json",
 //       Accept: "application/json",
-//       Authorization:
-//         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJjN2Q3MGIyNWRhMDAwMjE4NjU0NmEiLCJpYXQiOjE2NDcwODI4NjR9.gToydF6wdHHAOr8_2v0sc3K7c_U9EihcuWNVB4x6Eds",
+//       Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
 //     },
 //   });
 //   const products = await res.json();
