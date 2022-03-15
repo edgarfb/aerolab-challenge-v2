@@ -34,7 +34,7 @@ export default function Card({ product }) {
       </div>
       <style jsx>{`
         .card {
-          max-width: calc((1176px / 4));
+          max-width: 276px;
           width: 100%;
           padding: 1rem;
           box-shadow: 2px 3px 5px var(--gray-very-light);
