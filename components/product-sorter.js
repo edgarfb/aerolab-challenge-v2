@@ -1,6 +1,9 @@
-function BtnSortBy({ children, isActive }) {
+import { useState } from "react";
+const btnLabels = ["Most recent", "Lower price", "Highest price"];
+
+function BtnSortBy({ children, isActive, onClick }) {
   return (
-    <button type="button">
+    <button type="button" onClick={onClick}>
       {children}
       <style jsx>{`
         button {
@@ -11,6 +14,7 @@ function BtnSortBy({ children, isActive }) {
           border: none;
           border-radius: 1rem;
           color: ${isActive ? "var(--white)" : "var(--gray-light)"};
+          cursor: pointer;
         }
       `}</style>
     </button>
@@ -18,14 +22,21 @@ function BtnSortBy({ children, isActive }) {
 }
 
 export default function ProductSorterBar() {
+  const [actualIndex, setActualIndex] = useState(0);
   return (
     <div className="product-sorter-container">
       <div style={{ color: "var(--gray)" }}>16 of 32 products</div>
       <div className="sort-box">
         <div style={{ color: "var(--gray-light)" }}>sort by:</div>
-        <BtnSortBy isActive={true}>Most recent</BtnSortBy>
-        <BtnSortBy isActive={false}>Lower price</BtnSortBy>
-        <BtnSortBy isActive={false}>Highest price</BtnSortBy>
+        {btnLabels.map((label, index) => (
+          <BtnSortBy
+            key={index}
+            isActive={actualIndex === index}
+            onClick={() => setActualIndex(index)}
+          >
+            {label}
+          </BtnSortBy>
+        ))}
       </div>
       <style jsx>{`
         .product-sorter-container {
