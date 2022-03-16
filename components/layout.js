@@ -1,12 +1,9 @@
 import Navbar from "./navbar";
-import { userData } from "../fake-data/user-data";
-
-console.log(userData);
 
 export default function Layout({ children }) {
   return (
     <>
-      <Navbar user={userData}></Navbar>
+      <Navbar></Navbar>
       <main>{children}</main>
       <style jsx global>{`
         .top-5 {

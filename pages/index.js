@@ -2,11 +2,9 @@ import Head from "next/head";
 import MainImage from "../components/main-image";
 import ProductSorterBar from "../components/product-sorter";
 import Products from "../components/products";
-import { useAppContext } from "../context/appContext";
 import { productsMock } from "../fake-data/products-mock";
 
 export default function Home({ products }) {
-  console.log("productsMock", productsMock);
   return (
     <>
       <MainImage />
