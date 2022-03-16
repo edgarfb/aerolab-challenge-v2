@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useUserContext } from "../context/UserContext";
 
-export default function Navbar({ user }) {
+export default function Navbar() {
+  const user = useUserContext();
+
   return (
     <nav>
       <div className="logo">
