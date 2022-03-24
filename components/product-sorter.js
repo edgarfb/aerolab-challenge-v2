@@ -26,8 +26,8 @@ function BtnSortBy({ children, isActive, onClick }) {
   );
 }
 
-export default function ProductSorterBar() {
-  const dispatch = useProductsDispatchContext();
+export default function ProductSorterBar({ setdispatch }) {
+  const dispatch = setdispatch;
   const [actualIndex, setActualIndex] = useState(0);
   return (
     <div className="product-sorter-container">

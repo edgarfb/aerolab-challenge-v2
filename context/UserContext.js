@@ -8,7 +8,7 @@ export function UserProvider({ children }) {
   const [user, dispatch] = useReducer(userReducer, {});
 
   useEffect(async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}user/me`, {
+    const res = await fetch(`https://coding-challenge-api.aerolab.co/user/me`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
