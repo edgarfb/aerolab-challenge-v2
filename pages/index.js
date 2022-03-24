@@ -6,6 +6,9 @@ import Products from "../components/products";
 export default function Home({ products }) {
   return (
     <>
+      <Head>
+        <title>Aerolab Coding Challenge</title>
+      </Head>
       <MainImage />
       <ProductSorterBar />
       <Products products={products} />
