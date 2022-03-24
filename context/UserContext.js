@@ -1,11 +1,23 @@
 import { createContext, useContext, useReducer } from "react";
-import { userMock } from "../fake-data/user-mock";
+import { useEffect } from "react";
 
 const UserContext = createContext(null);
 const UserDispatchContext = createContext(null);
 
 export function UserProvider({ children }) {
-  const [user, dispatch] = useReducer(userReducer, userMock);
+  const [user, dispatch] = useReducer(userReducer, {});
+
+  useEffect(async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}user/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+      },
+    });
+    const data = await res.json();
+    dispatch({ type: "SET_USER", payload: data });
+  }, []);
 
   return (
     <UserContext.Provider value={user}>
@@ -25,5 +37,15 @@ export function useUserDispatchContext() {
 }
 
 function userReducer(state, action) {
-  return state;
+  switch (action.type) {
+    case "SET_USER":
+      return action.payload;
+    case "DISCOUNT_POINTS":
+      return {
+        ...state,
+        points: state.points - action.payload,
+      };
+    default:
+      return state;
+  }
 }

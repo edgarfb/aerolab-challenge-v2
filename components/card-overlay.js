@@ -1,6 +1,14 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import { redeemProduct } from "../lib/redeem";
+import { useUserDispatchContext } from "../context/UserContext";
 
 export default function CardOverlay({ product }) {
+  const [isEnable, setIsEnable] = useState(true);
+  const router = useRouter();
+
+  const dispatch = useUserDispatchContext();
   return (
     <div className="overlay-card">
       <div className="cost">
@@ -13,7 +21,16 @@ export default function CardOverlay({ product }) {
           height="20px"
         />
       </div>
-      <button className="btn-overlay-card" onClick={() => alert("redeen now")}>
+      <button
+        className="btn-overlay-card"
+        disabled={!isEnable}
+        onClick={() => {
+          redeemProduct(product._id);
+          setIsEnable(false);
+          router.push("/redeem-history");
+          dispatch({ type: "DISCOUNT_POINTS", payload: product.cost });
+        }}
+      >
         Redden now
       </button>
 
@@ -54,6 +71,10 @@ export default function CardOverlay({ product }) {
           padding: 0.5rem 3rem;
           border-radius: 1rem;
           color: var(--gray);
+          cursor: pointer;
+        }
+        .btn-overlay-card:hover {
+          cursor: pointer;
         }
         .buy-bag-white {
           position: absolute;

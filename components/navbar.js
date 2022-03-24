@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useUserContext } from "../context/UserContext";
+import Link from "next/link";
 
 export default function Navbar() {
   const user = useUserContext();
@@ -7,12 +8,16 @@ export default function Navbar() {
   return (
     <nav>
       <div className="logo">
-        <Image
-          src="/images/aerolab-logo.svg"
-          alt=""
-          width="20px"
-          height="20px"
-        />
+        <Link href="/">
+          <a>
+            <Image
+              src="/images/aerolab-logo.svg"
+              alt=""
+              width="20px"
+              height="20px"
+            />
+          </a>
+        </Link>
       </div>
       <div className="user-box">
         <div className="user-box-name">{user.name}</div>

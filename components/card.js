@@ -13,10 +13,10 @@ export default function Card({ product }) {
       onMouseLeave={() => setIsHover(false)}
     >
       {/* The overlay card will be display only if the product cost is less or equal to users points */}
-      {isHover && user.points > product.cost && (
+      {isHover && user.points >= product.cost && (
         <CardOverlay product={product} />
       )}
-      {user.points > product.cost && (
+      {user.points >= product.cost && (
         <div className="buy-bag">
           <Image
             src="/images/icons/buy-blue.svg"
