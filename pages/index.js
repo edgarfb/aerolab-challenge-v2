@@ -4,8 +4,8 @@ import ProductSorterBar from "../components/product-sorter";
 import Products from "../components/products";
 import { useReducer } from "react";
 
-export default function Home({ productsProps }) {
-  const [products, dispatch] = useReducer(productsReducer, productsProps);
+export default function Home({ products }) {
+  // const [products, dispatch] = useReducer(productsReducer, productsProps);
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function Home({ productsProps }) {
         <title>Aerolab Coding Challenge</title>
       </Head>
       <MainImage />
-      <ProductSorterBar setdispatch={dispatch} />
+      {/* <ProductSorterBar setdispatch={dispatch} /> */}
       <Products products={products} />
     </>
   );
@@ -32,7 +32,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      productsProps: products,
+      products,
     },
   };
 }
