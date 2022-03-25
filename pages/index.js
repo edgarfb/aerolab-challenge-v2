@@ -14,7 +14,7 @@ export default function Home({ products }) {
       </Head>
       <MainImage />
       {/* <ProductSorterBar setdispatch={dispatch} /> */}
-      <Products products={products} />
+      {/* <Products products={products} /> */}
     </>
   );
 }
@@ -41,7 +41,7 @@ function productsReducer(state, action) {
   switch (action.type) {
     // I need to think what should be the MOST_RECENT case
     case "MOST_RECENT": {
-      return [...state];
+      return state;
     }
     case "LOWER_PRICE": {
       return [...state].sort((a, b) => a.cost - b.cost);
