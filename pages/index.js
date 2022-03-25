@@ -4,8 +4,8 @@ import ProductSorterBar from "../components/product-sorter";
 import Products from "../components/products";
 import { useReducer } from "react";
 
-export default function Home({ products }) {
-  // const [products, dispatch] = useReducer(productsReducer, productsProps);
+export default function Home({ productsProps }) {
+  const [products, dispatch] = useReducer(productsReducer, productsProps);
 
   return (
     <>
@@ -13,8 +13,8 @@ export default function Home({ products }) {
         <title>Aerolab Coding Challenge</title>
       </Head>
       <MainImage />
-      {/* <ProductSorterBar setdispatch={dispatch} /> */}
-      {/* <Products products={products} /> */}
+      <ProductSorterBar setdispatch={dispatch} />
+      <Products products={products} />
     </>
   );
 }
@@ -25,14 +25,14 @@ export async function getStaticProps() {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: `Bearer ${process.env.MY_TOKEN}`,
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
     },
   });
   const products = await res.json();
 
   return {
     props: {
-      products,
+      productsProps: products,
     },
   };
 }
