@@ -25,7 +25,7 @@ export async function getStaticProps() {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+      Authorization: `Bearer ${process.env.MY_TOKEN}`,
     },
   });
   const products = await res.json();
