@@ -28,7 +28,7 @@ export default function CardOverlay({ product }) {
           redeemProduct(product._id);
           setIsEnable(false);
           dispatch({ type: "DISCOUNT_POINTS", payload: product.cost });
-          // router.push("/redeem-history");
+          router.push("/redeem-history");
         }}
       >
         Redden now
