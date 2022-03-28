@@ -21,7 +21,8 @@ export default function Home({ productsProps }) {
 
 // for production build
 export async function getStaticProps() {
-  const res = await fetch("https://coding-challenge-api.aerolab.co/products", {
+  const url = `${process.env.API_BASE_URL}/products`;
+  const res = await fetch(url, {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
