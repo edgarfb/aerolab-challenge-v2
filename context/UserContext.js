@@ -8,14 +8,9 @@ export function UserProvider({ children }) {
   const [user, dispatch] = useReducer(userReducer, {});
 
   useEffect(async () => {
-    const res = await fetch("https://coding-challenge-api.aerolab.co/user/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-      },
-    });
+    const res = await fetch("/api/get-user-handler");
     const data = await res.json();
+
     dispatch({ type: "SET_USER", payload: data });
   }, []);
 
