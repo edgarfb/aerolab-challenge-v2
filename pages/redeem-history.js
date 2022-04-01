@@ -1,7 +1,7 @@
 import ProductsUserHistory from "../components/products-user-history";
-import { productsMock } from "../fake-data/products-mock";
 
 export default function RedeemHistory({ redeemHistory }) {
+  console.log(redeemHistory);
   return (
     <div>
       {redeemHistory.length === 0 && (
@@ -33,7 +33,7 @@ export default function RedeemHistory({ redeemHistory }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = `${process.env.API_BASE_URL}/user/history`;
   const res = await fetch(url, {
     headers: {
