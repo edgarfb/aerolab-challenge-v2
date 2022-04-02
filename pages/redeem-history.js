@@ -14,7 +14,7 @@ export default function RedeemHistory({ redeemHistory }) {
       {redeemHistory.length > 0 && (
         <>
           <h1>Redeem History</h1>
-          <ProductsUserHistory products={redeemHistory} />
+          {/* <ProductsUserHistory products={redeemHistory} /> */}
         </>
       )}
 
@@ -34,7 +34,9 @@ export default function RedeemHistory({ redeemHistory }) {
 }
 
 export async function getServerSideProps() {
-  const url = `${process.env.API_BASE_URL}/user/history`;
+  // const url = `${process.env.API_BASE_URL}/user/history`;
+  const url =
+    "https://private-anon-49ee737344-aerolabchallenge.apiary-mock.com/user/history";
   const res = await fetch(url, {
     headers: {
       "Content-Type": "application/json",

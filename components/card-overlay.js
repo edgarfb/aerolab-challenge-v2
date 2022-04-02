@@ -1,7 +1,7 @@
 import { useState, useReducer } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { redeemProduct } from "../lib/redeem";
+import redeemProductHandler from "../lib/redeemProductHandler";
 import { useUserDispatchContext } from "../context/UserContext";
 
 export default function CardOverlay({ product }) {
@@ -47,8 +47,9 @@ export default function CardOverlay({ product }) {
             onClick={() => {
               setShowConfirm(false);
               setConfirmRedeem(true);
-              redeemProduct(product._id);
+              redeemProductHandler(product._id);
               dispatch({ type: "DISCOUNT_POINTS", payload: product.cost });
+
               router.push("/redeem-history");
             }}
           >
