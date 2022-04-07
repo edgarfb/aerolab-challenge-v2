@@ -1,11 +1,9 @@
 import { useState } from "react";
 import Card from "./card";
-import { useProductsContext } from "../context/ProductsContext";
 
 export default function Products({ products }) {
   const [initPage, setInitPage] = useState(0);
   const [endPage, setEndPage] = useState(16);
-  // const products = useProductsContext();
   return (
     <section>
       <div className="btn-pagination">

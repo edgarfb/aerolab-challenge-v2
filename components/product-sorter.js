@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useProductsDispatchContext } from "../context/ProductsContext";
 const btnLabels = [
   { label: "Most recent", action: "MOST_RECENT" },
   { label: "Lower price", action: "LOWER_PRICE" },
