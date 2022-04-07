@@ -9,7 +9,6 @@ export default function CardOverlay({ product }) {
   const [showConfirm, setShowConfirm] = useState(false);
   const [confirmRedeem, setConfirmRedeem] = useState(false);
   const router = useRouter();
-
   const dispatch = useUserDispatchContext();
 
   return (

@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import { useEffect } from "react";
+import getUserHandler from "../lib/getUserHandler";
 
 const UserContext = createContext(null);
 const UserDispatchContext = createContext(null);
@@ -8,10 +9,9 @@ export function UserProvider({ children }) {
   const [user, dispatch] = useReducer(userReducer, {});
 
   useEffect(async () => {
-    const res = await fetch("/api/get-user-handler");
-    const data = await res.json();
+    const res = await getUserHandler();
 
-    dispatch({ type: "SET_USER", payload: data });
+    dispatch({ type: "SET_USER", payload: res });
   }, []);
 
   return (

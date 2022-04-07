@@ -44,7 +44,7 @@ export default function ProductsUserHistory({ products }) {
   return (
     <div className="products-container">
       {products.map((product) => {
-        return <HistoryCard key={product.id} product={product} />;
+        return <HistoryCard key={product.productId} product={product} />;
       })}
       <style jsx>{`
         .products-container {
