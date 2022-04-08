@@ -1,0 +1,41 @@
+.card {
+    max-width: 276px;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 2px 3px 5px var(--gray-very-light);
+    position: relative;
+  }
+  .card:hover {
+    cursor: pointer;
+  }
+
+  .buyBag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+  }
+
+ 
+  .notEnoughPoints {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    color: var(--gray-very-light);
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    z-index: 10;
+    background-color: var(--gray-light);
+  }
+  .category {
+    display: block;
+    color: var(--gray-light);
+  }
+  .name {
+    display: block;
+    color: var(--gray);
+  }

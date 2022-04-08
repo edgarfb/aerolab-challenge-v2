@@ -2,13 +2,17 @@ import Image from "next/image";
 import { useState } from "react";
 import CardOverlay from "./card-overlay";
 import { useUserContext } from "../context/UserContext";
+import styles from "./card.module.css";
+import { motion } from "framer-motion";
 
 export default function Card({ product }) {
   const user = useUserContext();
   const [isHover, setIsHover] = useState(false);
   return (
-    <div
-      className="card"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.card}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -17,7 +21,7 @@ export default function Card({ product }) {
         <CardOverlay product={product} />
       )}
       {user.points >= product.cost && (
-        <div className="buy-bag">
+        <div className={styles.buyBag}>
           <Image
             src="/images/icons/buy-blue.svg"
             alt=""
@@ -27,7 +31,7 @@ export default function Card({ product }) {
         </div>
       )}
       {user.points < product.cost && (
-        <div className="not-enough-points">
+        <div className={styles.notEnoughPoints}>
           <div>You need {product.cost}</div>
           <div className="top-5" style={{ display: "flex" }}>
             <Image
@@ -39,7 +43,7 @@ export default function Card({ product }) {
           </div>
         </div>
       )}
-      <div className="card-image">
+      <div>
         <Image
           src={product.img.url}
           alt=""
@@ -49,54 +53,9 @@ export default function Card({ product }) {
         />
       </div>
       <div className="card-info">
-        <span className="category">{product.category}</span>
-        <span className="name">{product.name}</span>
+        <span className={styles.category}>{product.category}</span>
+        <span className={styles.name}>{product.name}</span>
       </div>
-      <style jsx>{`
-        .card {
-          max-width: 276px;
-          width: 100%;
-          padding: 1rem;
-          box-shadow: 2px 3px 5px var(--gray-very-light);
-          position: relative;
-        }
-        .card:hover {
-          cursor: pointer;
-        }
-
-        .buy-bag {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          z-index: 10;
-        }
-
-        img {
-          width: 100%;
-        }
-        .not-enough-points {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 2rem;
-          color: var(--gray-very-light);
-          gap: 0.5rem;
-          padding: 0.5rem 1rem;
-          z-index: 10;
-          background-color: var(--gray-light);
-        }
-        .category {
-          display: block;
-          color: var(--gray-light);
-        }
-        .name {
-          display: block;
-          color: var(--gray);
-        }
-      `}</style>
-    </div>
+    </motion.div>
   );
 }
