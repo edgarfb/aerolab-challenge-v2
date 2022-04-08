@@ -2,10 +2,14 @@ import Head from "next/head";
 import MainImage from "../components/main-image";
 import ProductSorterBar from "../components/product-sorter";
 import Products from "../components/products";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
+import { ProductsContextProvider } from "../context/productsContext";
 
 export default function Home({ productsProps }) {
   const [products, dispatch] = useReducer(productsReducer, productsProps);
+  const [initPage, setInitPage] = useState(0);
+  const [endPage, setEndPage] = useState(16);
+  const productsLength = products.length;
 
   return (
     <>
@@ -13,13 +17,17 @@ export default function Home({ productsProps }) {
         <title>Aerolab Coding Challenge</title>
       </Head>
       <MainImage />
-      <ProductSorterBar setdispatch={dispatch} />
-      <Products products={products} />
+      <ProductsContextProvider
+        value={{ initPage, endPage, productsLength, setInitPage, setEndPage }}
+      >
+        <ProductSorterBar setdispatch={dispatch} />
+        <Products products={products} />
+        <ProductSorterBar showSorter={false} />
+      </ProductsContextProvider>
     </>
   );
 }
 
-// for production build
 export async function getStaticProps() {
   const url = `${process.env.API_BASE_URL}/products`;
   const res = await fetch(url, {
