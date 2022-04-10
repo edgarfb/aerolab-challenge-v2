@@ -1,50 +1,13 @@
-import Image from "next/image";
-
-function HistoryCard({ product }) {
-  return (
-    <div className="card">
-      <div className="card-image">
-        <Image
-          src={product.img.url}
-          alt=""
-          width="252px"
-          height="182px"
-          layout="responsive"
-        />
-      </div>
-      <div className="card-info">
-        <span className="category">{product.category}</span>
-        <span className="name">{product.name}</span>
-      </div>
-
-      <style jsx>{`
-        .card {
-          max-width: 276px;
-          width: 100%;
-          padding: 1rem;
-          box-shadow: 2px 3px 5px var(--gray-very-light);
-        }
-        img {
-          width: 100%;
-        }
-        .category {
-          display: block;
-          color: var(--gray-light);
-        }
-        .name {
-          display: block;
-          color: var(--gray);
-        }
-      `}</style>
-    </div>
-  );
-}
+import HistoryCard from "./history-cards";
+import uniquesProdusts from "../lib/uniques-products";
 
 export default function ProductsUserHistory({ products }) {
+  const uniquesProducts = uniquesProdusts(products);
+
   return (
     <div className="products-container">
-      {products.map((product) => {
-        return <HistoryCard key={product.productId} product={product} />;
+      {uniquesProducts.map((product) => {
+        return <HistoryCard key={product.createDate} product={product} />;
       })}
       <style jsx>{`
         .products-container {
