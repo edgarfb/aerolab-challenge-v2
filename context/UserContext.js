@@ -12,7 +12,7 @@ export function UserProvider({ children }) {
     const res = await getUserHandler();
 
     dispatch({ type: "SET_USER", payload: res });
-  }, []);
+  }, [user]);
 
   return (
     <UserContext.Provider value={user}>
@@ -39,6 +39,11 @@ function userReducer(state, action) {
       return {
         ...state,
         points: state.points - action.payload,
+      };
+    case "ADD_POINTS":
+      return {
+        ...state,
+        points: state.points + action.payload,
       };
     default:
       return state;

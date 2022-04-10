@@ -1,7 +1,7 @@
-import ProductsUserHistory from "../components/products-user-history";
+import ProductsUserHistory from "../../components/products-user-history";
 
-export default function RedeemHistory({ redeemHistory }) {
-  console.log("Redeem history", redeemHistory);
+export default function User({ redeemHistory }) {
+  console.log("redeem", redeemHistory);
   return (
     <div>
       {redeemHistory.length === 0 && (
