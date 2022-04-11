@@ -7,7 +7,9 @@ export default function ProductsUserHistory({ products }) {
   return (
     <div className="products-container">
       {uniquesProducts.map((product) => {
-        return <HistoryCard key={product.createDate} product={product} />;
+        return (
+          <HistoryCard priority key={product.createDate} product={product} />
+        );
       })}
       <style jsx>{`
         .products-container {

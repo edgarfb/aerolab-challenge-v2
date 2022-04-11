@@ -1,7 +1,6 @@
 import ProductsUserHistory from "../../components/products-user-history";
 
 export default function User({ redeemHistory }) {
-  console.log("redeem", redeemHistory);
   return (
     <div>
       {redeemHistory.length === 0 && (

@@ -15,6 +15,9 @@ export default function HistoryCard({ product }) {
       <div className="card-info">
         <span className="category">{product.category}</span>
         <span className="name">{product.name}</span>
+        {product.amount > 1 && (
+          <span className="name">{product.amount} Items</span>
+        )}
       </div>
 
       <style jsx>{`
