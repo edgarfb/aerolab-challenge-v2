@@ -1,10 +1,8 @@
-import { useState, useContext } from "react";
 import Card from "./card";
 import { useProductsContext } from "../context/productsContext";
 
-export default function Products({ products }) {
-  const { initPage, endPage, setInitPage, setEndPage, productsLength } =
-    useProductsContext();
+export default function Products() {
+  const { initPage, endPage, products } = useProductsContext();
   return (
     <section>
       <div className="products-container">

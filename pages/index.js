@@ -18,10 +18,17 @@ export default function Home({ productsProps }) {
       </Head>
       <MainImage />
       <ProductsContextProvider
-        value={{ initPage, endPage, productsLength, setInitPage, setEndPage }}
+        value={{
+          initPage,
+          endPage,
+          products,
+          productsLength,
+          setInitPage,
+          setEndPage,
+        }}
       >
         <ProductSorterBar setdispatch={dispatch} />
-        <Products products={products} />
+        <Products />
         <ProductSorterBar showSorter={false} />
       </ProductsContextProvider>
     </>

@@ -5,7 +5,6 @@ export default function BtnPAgination() {
   const { initPage, endPage, setInitPage, setEndPage, productsLength } =
     useProductsContext();
 
-  console.log("initPage", initPage);
   return (
     <div className="btn-pagination">
       <button

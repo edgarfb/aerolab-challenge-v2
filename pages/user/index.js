@@ -1,7 +1,6 @@
-import ProductsUserHistory from "../components/products-user-history";
+import ProductsUserHistory from "../../components/products-user-history";
 
-export default function RedeemHistory({ redeemHistory }) {
-  console.log("Redeem history", redeemHistory);
+export default function User({ redeemHistory }) {
   return (
     <div>
       {redeemHistory.length === 0 && (
@@ -33,7 +32,7 @@ export default function RedeemHistory({ redeemHistory }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const url = `${process.env.API_BASE_URL}/user/history`;
   const res = await fetch(url, {
     headers: {
