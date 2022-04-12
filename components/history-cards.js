@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-export default function HistoryCard({ product }) {
+export default function HistoryCard({ product, priority = false }) {
   return (
     <div className="card">
       <div className="card-image">
         <Image
+          priority={priority}
           src={product.img.url}
           alt=""
           width="252px"

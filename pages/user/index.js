@@ -32,7 +32,7 @@ export default function User({ redeemHistory }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const url = `${process.env.API_BASE_URL}/user/history`;
   const res = await fetch(url, {
     headers: {

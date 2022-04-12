@@ -6,10 +6,15 @@ export default function ProductsUserHistory({ products }) {
 
   return (
     <div className="products-container">
-      {uniquesProducts.map((product) => {
-        return (
-          <HistoryCard priority key={product.createDate} product={product} />
-        );
+      {uniquesProducts.map((product, index) => {
+        if (index === 0) {
+          <HistoryCard
+            priority="true"
+            key={product.createDate}
+            product={product}
+          />;
+        }
+        return <HistoryCard key={product.createDate} product={product} />;
       })}
       <style jsx>{`
         .products-container {
