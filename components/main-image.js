@@ -15,24 +15,31 @@ export default function MainImage() {
           background-size: cover;
           background-position: right top;
           background-repeat: no-repeat;
-          height: 412px;
+          height: 312px;
           display: flex;
           align-items: flex-end;
         }
         .section-title {
-          font-size: 4rem;
+          padding: 0 1rem;
+          font-size: 2.5rem;
           color: var(--white);
           letter-spacing: 0.1rem;
           width: 1176px;
           margin: 3rem auto;
         }
-        // I need to figure out how to make this work
-        // Retina display
-        // @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        //   .main-image {
-        //     background-image: url("/images/header-x2.png");
-        //   }
-        // }
+
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .main-image {
+            background-image: url("/images/header-x2.png");
+          }
+        }
+
+        @media (min-width: 768px) {
+          .main-image {
+            height: 412px;
+            font-size: 4rem;
+          }
+        }
       `}</style>
     </div>
   );

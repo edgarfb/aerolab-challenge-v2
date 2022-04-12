@@ -16,11 +16,17 @@ function BtnSortBy({ children, isActive, onClick }) {
           background: ${isActive
             ? "var(--lightblue)"
             : "var(--gray-very-light)"};
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 0.7rem;
           border: none;
           border-radius: 1rem;
           color: ${isActive ? "var(--white)" : "var(--gray-light)"};
           cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+          button {
+            padding: 0.5rem 1rem;
+          }
         }
       `}</style>
     </button>
@@ -34,12 +40,14 @@ export default function ProductSorterBar({ setdispatch, showSorter = true }) {
   return (
     <div className="product-sorter-container">
       <div className="inner-sorter">
-        <div style={{ color: "var(--gray)" }}>
+        <div style={{ color: "var(--gray-light)" }}>
           {endPage} of {productsLength} products
         </div>
         {showSorter && (
           <div className="sort-box">
-            <div style={{ color: "var(--gray-light)" }}>sort by:</div>
+            <div className="sort-by" style={{ color: "var(--gray-light)" }}>
+              sort by:
+            </div>
             {btnLabels.map((item, index) => (
               <BtnSortBy
                 key={item.label}
@@ -61,6 +69,7 @@ export default function ProductSorterBar({ setdispatch, showSorter = true }) {
         .product-sorter-container {
           display: flex;
           width: 100%;
+          flex-direction: column;
           justify-content: space-between;
           gap: 1rem;
           align-items: center;
@@ -72,13 +81,31 @@ export default function ProductSorterBar({ setdispatch, showSorter = true }) {
         }
         .inner-sorter {
           display: flex;
+          flex-direction: column;
           gap: 1rem;
           align-items: center;
+        }
+        .sort-by {
+          display: none;
         }
         .sort-box {
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: 0.5rem;
+        }
+        @media (min-width: 768px) {
+          .product-sorter-container {
+            flex-direction: row;
+          }
+          .inner-sorter {
+            flex-direction: row;
+          }
+          .sort-by {
+            display: block;
+          }
+          .sort-box {
+            gap: 1rem;
+          }
         }
       `}</style>
     </div>

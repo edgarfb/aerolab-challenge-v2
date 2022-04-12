@@ -13,11 +13,19 @@ export default function Products() {
       <style jsx>{`
         .products-container {
           display: flex;
-          gap: 1em;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
           flex-wrap: wrap;
           max-width: 1176px;
 
           margin: 2rem auto;
+        }
+
+        @media (min-width: 768px) {
+          .products-container {
+            gap: 1rem;
+          }
         }
       `}</style>
     </section>

@@ -19,11 +19,18 @@ export default function ProductsUserHistory({ products }) {
       <style jsx>{`
         .products-container {
           display: flex;
-          gap: 1em;
+          gap: 2rem;
+          justify-content: center;
+          align-items: center;
           flex-wrap: wrap;
           max-width: 1176px;
 
           margin: 2rem auto;
+        }
+        @media (min-width: 768px) {
+          .products-container {
+            gap: 1rem;
+          }
         }
       `}</style>
     </div>
