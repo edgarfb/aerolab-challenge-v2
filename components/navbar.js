@@ -45,9 +45,9 @@ export default function Navbar() {
         nav {
           max-width: 1440px;
           margin: auto;
-          padding: 1rem 2rem;
+          padding: 1rem;
           display: flex;
-
+          font-size: 0.9rem;
           justify-content: space-between;
           align-items: center;
         }
@@ -63,6 +63,12 @@ export default function Navbar() {
           padding: 0.3rem;
           border-radius: 1rem;
           background-color: var(--gray-very-light);
+        }
+        @media (min-width: 768px) {
+          nav {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+          }
         }
       `}</style>
     </nav>
