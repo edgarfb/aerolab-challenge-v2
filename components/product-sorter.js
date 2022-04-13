@@ -96,6 +96,7 @@ export default function ProductSorterBar({ setdispatch, showSorter = true }) {
         @media (min-width: 768px) {
           .product-sorter-container {
             flex-direction: row;
+            padding: 1rem 2rem;
           }
           .inner-sorter {
             flex-direction: row;

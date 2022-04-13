@@ -3,7 +3,6 @@ import uniquesProdusts from "../lib/uniques-products";
 
 export default function ProductsUserHistory({ products }) {
   const uniquesProducts = uniquesProdusts(products);
-
   return (
     <div className="products-container">
       {uniquesProducts.map((product, index) => {

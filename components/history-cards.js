@@ -17,7 +17,7 @@ export default function HistoryCard({ product, priority = false }) {
         <span className="category">{product.category}</span>
         <span className="name">{product.name}</span>
         {product.amount > 1 && (
-          <span className="name">{product.amount} Items</span>
+          <span className="amount-items">x{product.amount}</span>
         )}
       </div>
 
@@ -27,6 +27,7 @@ export default function HistoryCard({ product, priority = false }) {
           width: 100%;
           padding: 1rem;
           box-shadow: 2px 3px 5px var(--gray-very-light);
+          position: relative;
         }
         img {
           width: 100%;
@@ -38,6 +39,14 @@ export default function HistoryCard({ product, priority = false }) {
         .name {
           display: block;
           color: var(--gray);
+        }
+        .amount-items {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: var(--orange);
         }
       `}</style>
     </div>
