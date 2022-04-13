@@ -9,6 +9,7 @@ export default async function handler(req, res) {
     },
     body: req.body,
   });
+  await res.unstable_revalidate("/user");
   const response = await request.json();
   res.status(200).json(response);
 }

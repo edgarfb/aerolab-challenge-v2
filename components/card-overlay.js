@@ -57,7 +57,7 @@ export default function CardOverlay({ product }) {
               redeemProductHandler(product._id);
               dispatch({ type: "DISCOUNT_POINTS", payload: product.cost });
 
-              router.push("/user");
+              router.replace("/user");
             }}
           >
             Si

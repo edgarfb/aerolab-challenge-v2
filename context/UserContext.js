@@ -12,7 +12,7 @@ export function UserProvider({ children }) {
     const res = await getUserHandler();
 
     dispatch({ type: "SET_USER", payload: res });
-  }, [user]);
+  }, []);
 
   return (
     <UserContext.Provider value={user}>

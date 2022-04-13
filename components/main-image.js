@@ -37,6 +37,16 @@ export default function MainImage() {
         @media (min-width: 768px) {
           .main-image {
             height: 412px;
+          }
+          .section-title {
+            font-size: 3rem;
+          }
+        }
+        @media (min-width: 1000px) {
+          .main-image {
+            height: 412px;
+          }
+          .section-title {
             font-size: 4rem;
           }
         }
