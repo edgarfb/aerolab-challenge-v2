@@ -16,7 +16,6 @@ export default function AddPoints() {
             }),
           });
           const response = await fetcher.json();
-          console.log(response);
           dispatch({ type: "ADD_POINTS", payload: points });
         }}
       >
@@ -24,7 +23,7 @@ export default function AddPoints() {
         <select
           name="addPointSelector"
           id="addPointSelector"
-          onChange={(e) => setPoints(e.target.value)}
+          onChange={(e) => setPoints(+e.target.value)}
         >
           <option value="1000">1000</option>
           <option value="5000">5000</option>
